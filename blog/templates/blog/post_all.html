@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Post List </title>
+</head>
+<body>
+<h1> Blog List </h1>
+
+{% for post in posts %}
+<h2><a href='{{ post.get_absolute_url }}'> {{ post.title }} </a></h2>
+
+<p> {{ post.description }} </p>
+{% endfor %}
+
+<div>
+    <span>
+        {% if page_obj.has_previous %}
+            <a href ="?page = {{ page_obj.previous_page_number }}">Previous Page</a>
+        {% endif %}
+
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+        {% if page_obj.has_next %}
+            <a href = "?page= {{ page_obj.next_page_number }}">Next Page</a>
+        {% endif %}
+    </span>
+</div>
+
+
+</body>
+</html>
