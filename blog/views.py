@@ -18,6 +18,7 @@ class PostLV(ListView):
 class PostDV(DetailView):
     model = Post
 
+
 # ArchiveView
 class PostAV(ArchiveIndexView):
     model = Post
@@ -29,13 +30,16 @@ class PostYAV(YearArchiveView):
     date_field = 'modify_date'
     make_object_list = True
 
+
 class PostMAV(MonthArchiveView):
     model = Post
     date_field = 'modify_date'
 
+
 class PostDAV(DayArchiveView):
     model = Post
     date_field = 'modify_date'
+
 
 class PostTAV(TodayArchiveView):
     model = Post

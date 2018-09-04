@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang = "ko">
+
+<head>
+    <title>{% block title %} Django Web Programming {% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href = "{% static 'css/base.css' %}" >
+</head>
+
+<div id="header">
+    <h2 class="maintitle">Django Web </h2>
+</div>
+
+<div id = "menu">
+    <li><a href="#"> Home  </a></li>
+    <li><a href="#"> Bookmark  </a></li>
+    <li><a href="#"> Blog  </a></li>
+</div>
+
+{% block content %}
+{% endblock %}
+</html>
