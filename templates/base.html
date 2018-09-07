@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang = "ko">
-
+{% load static  %}
+<html lang="ko">
 <head>
     <title>{% block title %} Django Web Programming {% endblock %}</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href = "{% static 'css/base.css' %}" >
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
+<div class="page-header">
+    <h1><a href="/">Django Web</a></h1>
 
-<div id="header">
-    <h2 class="maintitle">Django Web </h2>
+    <h4> Welcome <a href="#"> eh </a></h4>
+    <a href="#"> Change Password </a>
+    <a href="#"> Logout </a>
+
 </div>
 
-<div id = "menu">
-    <li><a href="#"> Home  </a></li>
-    <li><a href="#"> Bookmark  </a></li>
-    <li><a href="#"> Blog  </a></li>
-</div>
+
+<nav class="navbar navbar-inverse">
+    <!--Menu Start Here-->
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'bookmark:index' %}">Bookmark</a></li>
+        <li><a href="{% url 'blog:index' %}">Blog</a></li>
+         <li><a href="{% url 'blog:post_archive' %}">Archive</a></li>
+    </ul>
+    <!--Menu End Here-->
+</nav>
 
 {% block content %}
 {% endblock %}
