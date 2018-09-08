@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Post List </title>
-</head>
-<body>
-<h1> Blog List </h1>
+{% extends "base.html" %}
 
-{% for post in posts %}
+{% block title%} post_all.html {% endblock %}
+
 <h2><a href='{{ post.get_absolute_url }}'> {{ post.title }} </a></h2>
 
+{% block content %}
+<div id ="content">
+<h1> Post List </h1>
+{% for post in posts %}
+<h4><a href='{{ post.get_absolute_url }}'> {{ post.title }} </a></h4>
 <p> {{ post.description }} </p>
 {% endfor %}
+
+</div>
 
 <div>
     <span>
@@ -25,6 +27,4 @@
         {% endif %}
     </span>
 </div>
-
-</body>
-</html>
+{% endblock %}

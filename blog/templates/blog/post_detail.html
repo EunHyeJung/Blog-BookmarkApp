@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Post Detail </title>
-</head>
-<body>
-<h2> {{ object.title }} </h2>
+{% extends "base.html" %}
 
-<p class = "other_posts">
-    {% if object.get_previous_by_modify_date %}
-    <a href = "{{ obejct.get_previous_post.get_absolute_url}}" title = "View previous post"> &laquo;-- {{ object.get_previous_post }}</a>
-    {% endif %}
-</p>
 
-<p class="date">{{ object.modify_date|date:"j F Y" }}</p>
-<br/>
+{% block title %} post_detail.html {% endblock %}
 
-<div class = "body">
+
+{% block content %}
+<div id="content">
+    <h2>{{ object.title }}</h2>
     {{ object.content|linebreaks }}
 </div>
-</body>
-</html>
+{% endblock %}
