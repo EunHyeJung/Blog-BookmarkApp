@@ -1,9 +1,31 @@
 {% extends "base.html" %}
-
+{% load static  %}
 {% block title %} home.html {% endblock %}
 
 {% block content %}
-<div class="content container">
-    This is CONTENT area.
+<div class="content">
+    <div id="index">
+        <img src="{% static 'img/header_image.jpg' %}" style="height : 400px;">
+        <hr>
+        <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Application</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bookmark</td>
+                            <td>Bookmark Description</td>
+                        </tr>
+                        <tr>
+                            <td>Blog</td>
+                            <td>Blog Description</td>
+                        </tr>
+
+                    </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
