@@ -2,11 +2,11 @@
 
 {% block title %} Django Bookmark List {% endblock %}
 {% block content %}
-<div id = "content">
+<div class="content">
     <h1> Bookmark List </h1>
     <ul>
         {% for bookmark in object_list %}
-            <li><a href="{% url 'bookmark:detail' bookmark.id %}"> {{ bookmark }}</a> </li>
+        <li><a href="{% url 'bookmark:detail' bookmark.id %}"> {{ bookmark }}</a></li>
         {% endfor %}
     </ul>
 </div>

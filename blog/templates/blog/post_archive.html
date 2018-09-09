@@ -3,14 +3,14 @@
 {% block title%} post_archive.html {% endblock %}
 
 {% block content %}
-<div class = "content">
+<div class="content">
     <h2> Post Archive until {% now "N d, Y" %} </h2>
 
     <ul>
         {% for date in date_list %}
-            <li style = "display: inline;">
-                 <a href="{% url 'blog:post_year_archive' date|date:'Y' %}">Year-{{ date|date:"Y" }}</a>
-            </li>
+        <li style="display: inline;">
+            <a href="{% url 'blog:post_year_archive' date|date:'Y' %}">Year-{{ date|date:"Y" }}</a>
+        </li>
         {% endfor %}
     </ul>
     <br/>
@@ -19,7 +19,7 @@
         <ul>
             {% for post in object_list %}
             <li>{{ post.modify_date|date:"Y-m-d"}} &nbsp;&nbsp;&nbsp;
-            <a href="{{ post.get_absolute_url}}"> <strong> {{ post.title }} </strong>  </a></li>
+                <a href="{{ post.get_absolute_url}}"> <strong> {{ post.title }} </strong> </a></li>
             {% endfor %}
         </ul>
     </div>

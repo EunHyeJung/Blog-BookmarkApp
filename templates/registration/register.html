@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} register.html {% endblock %}
+{% load static %}
+{% block extrastyle %} {% static "css/form.css" %}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2>JOIN</h2>
+
+    <form method="post" action="."> {% csrf_token %}
+        <p> Pleas enter your information. </p>
+
+        <fieldset class="aligned">
+            <div class="form-row">
+                {{ form.username.label_tag}} {{ form.username }}
+            </div>
+            <div class="form-row">
+                {{ form.password1.label_tag}} {{ form.password1 }}
+            </div>
+            <div class="form-row">
+                {{ form.password2.label_tag}} {{ form.password2 }}
+            </div>
+        </fieldset>
+        <div class ="submit-row">
+            <input type="submit" value = "Register" />
+
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}
