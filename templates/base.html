@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static  %}
+{% load staticfiles %}
 <html lang="ko">
 <head>
     <title>{% block title %} Django Web Programming {% endblock %}</title>
@@ -13,7 +13,7 @@
         {% if user.is_active %}
         <h4> Welcome <a href="#"> eh </a>  !　|　 <a href="{% url 'logout' %}"> Logout </a></h4>
         {% else %}
-        <h4> Welcome !  <a href="{% url 'login' %}"> Login</a> 　|　 <a href="{% url 'register' %}"> Register </a></h4>
+        <h4> <a href="{% url 'login' %}"> Login</a> 　|　 <a href="{% url 'register' %}"> Register </a></h4>
         {% endif %}
     </div>
 </div>

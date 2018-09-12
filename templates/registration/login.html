@@ -2,15 +2,31 @@
 
 {% block title %} login.html {% endblock %}
 
-{% load static %}
-{% block extrastyle %}{% static "css/form.css" %}{% endblock %}
+
+<!-- css/from.css 스타일 시트 파일을 사용해 폼스타일르 꾸밈.-->
+{% load staticfiles %}
+{% block extraystyle %}  {% static "css/forms.css" %} {% endblock extraystyle %}
 
 {% block content %}
 <div class="content">
     <h2>  Login </h2>
 
+    <div id ="test">
+        testtesttest dddd
+        <textarea>
+            dddd
+        </textarea>
+    </div>
+
+    <!-- 로그인 폼 -->
     <form action="." method="post"> {% csrf_token %}
-        <fieldset class="aligend">
+        <!-- 폼에 입력되는 내용 중 에러가 있으면 아래 구문 실행 -->
+        {% if form.errors %}
+        <p class ="errornote"> Wrong! Please correct the error(s) below. </p>
+        {% endif %}
+        <p> Fill in a form. </p>
+
+        <fieldset class="aligned">
             <div class="form-row">
                 {{ form.username.label_tag }} {{ form.username }}
             </div>
@@ -21,7 +37,7 @@
         </fieldset>
         <div class="submit-row">
             <input type="submit" value="Log In"/>
-            <input type="hidden" name="text" value = "{{ next}} "/>
+            <input type="hidden" name="text" value = "{{ next }} "/>
         </div>
     </form>
 </div>
