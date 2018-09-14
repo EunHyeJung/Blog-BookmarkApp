@@ -3,60 +3,67 @@
 {% block title %} register.html {% endblock %}
 
 {% load staticfiles %}
-{% block extrastyle %}<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}" /> {% endblock %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}"/> {% endblock %}
 {% block content %}
 <div class="content">
 
+    <div class="container">
+        <div class="row main">
+            <div class="panel-heading">
+                <div class="panel-title text-center">
+                    <h1 class="title">NEW ACCOUNT REGISTRATION</h1>
+                    <hr/>
+                </div>
+            </div>
+            <div class="main-login main-center">
+                <form class="form-horizontal" method="post" action="#">
 
-        <h5 class="card-header info-color white-text text-center py-4">
-            <strong>Sign in</strong>
-        </h5>
-            <form class="regform" method="post" action="."> {% csrf_token %}
-                <div class="row">
-    <form class="col s12" id="reg-form">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" required>
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" minlength="6" required>
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Register
-            <i class="material-icons right">done</i>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <a title="Login" class="ngl btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>
-                <!--{% if from.errors %}-->
-                <!--<p> Wrong ! Please correct the error(s) below.</p>-->
-                <!--{% endif %}-->
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="Enter your Username"/>
+                            </div>
+                        </div>
+                    </div>
 
-                <!--<p> Pleas fill in a form. </p>-->
-                <!--<fieldset class="aligned">-->
-                    <!--<div class="md-form">-->
-                        <!--{{ form.username.label_tag}} {{ form.username }}-->
-                    <!--</div>-->
-                    <!--<div class="form-row">-->
-                        <!--{{ form.password1.label_tag}} {{ form.password1 }}-->
-                    <!--</div>-->
-                    <!--<div class="form-row">-->
-                        <!--{{ form.password2.label_tag}} {{ form.password2 }}-->
-                    <!--</div>-->
-                <!--</fieldset>-->
-                <!--<div class="submit-row">-->
-                    <!--<input type="submit" value="Register"/>-->
-                <!--</div>-->
-            </form>
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password"
+                                       placeholder="Enter your Password"/>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirm" id="confirm"
+                                       placeholder="Confirm your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                    </div>
+                    <div class="login-register">
+                        <a href="index.php">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>
 {% endblock %}
