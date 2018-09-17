@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 # Create your models here.
@@ -11,6 +13,7 @@ class Post(models.Model):
     content = models.TextField('CONTENT')
     create_date = models.DateTimeField('Create Date', auto_now_add=True)
     modify_date = models.DateTimeField('Modify Date', auto_now=True)
+    owner = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'post'
@@ -29,3 +32,11 @@ class Post(models.Model):
 
     def get_next_post(self):
         return self.get_next_by_modify_date()
+
+    # 모델 객체의 내용을 DB에 저장하는 메소드
+    # DB 테이블에 저장시 self.id를 확인해 False인 경우, 즉 처음으로 저장하는 경우에만
+    # slug필드를 title 필드의 단어로 변환해 자동으로 채워줌.
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title, allow_unicode=True)
+        super(Post, self).save(*args, **kwargs)
