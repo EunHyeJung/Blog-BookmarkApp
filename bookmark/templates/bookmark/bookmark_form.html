@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} bookmark_form.html {% endblock %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="content">
+    <h1> Create New Bookmark </h1>
+    <form action="." method="post"> {% csrf_token %}
+        {% if form.errors %}
+        <p class="errornote">Wrong ! Please correct the error(s) below. </p>
+        {% endif %}
+
+        <p> This is a creation from for your bookmark. </p>
+
+        <fieldset class = "algined">
+            <div class = "form-row">
+                {{ form.title.label_tag }} {{ form.title }}
+            </div>
+            <div class="form-row">
+                {{ form.url.label_tag }} {{ form.url }}
+            </div>
+        </fieldset>
+
+        <div class = "submit-row">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>
+{% endblock %}

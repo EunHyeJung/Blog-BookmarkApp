@@ -4,7 +4,7 @@
 {% block content %}
 <div class="content">
     <h1> Bookmark List </h1>
-    <h3><a href="#" class="top-menu"> Add New Bookmark<span class="glyphicon glyphicon-plus"></span></a></h3>
+    <h3><a href="{% url 'bookmark:add' %}" class="top-menu"> Add New Bookmark<span class="glyphicon glyphicon-plus"></span></a></h3>
     <ul>
         {% for bookmark in object_list %}
         <li><a href="{% url 'bookmark:detail' bookmark.id %}"> {{ bookmark }}</a></li>
