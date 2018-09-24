@@ -3,8 +3,13 @@
 {% block title %} Django Bookmark List {% endblock %}
 {% block content %}
 <div class="content">
+    <div class="content-header">
     <h1> Bookmark List </h1>
-    <h3><a href="{% url 'bookmark:add' %}" class="top-menu"> Add New Bookmark<span class="glyphicon glyphicon-plus"></span></a></h3>
+
+        <a href="{% url 'bookmark:add' %}" class="btn btn-primary a-btn-slide-text"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span><strong>Add</strong></span> </a>
+        <a href="{% url 'bookmark:change' %}" class="btn btn-primary a-btn-slide-text"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <span><strong>Edit</strong></span>
+        | <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <span><strong> Delete</strong></span> </a>
+    </div>
     <ul>
         {% for bookmark in object_list %}
         <li><a href="{% url 'bookmark:detail' bookmark.id %}"> {{ bookmark }}</a></li>
