@@ -21,5 +21,11 @@ urlpatterns = [
     path('<int:year>/<int:month>/<int:day>/', PostDAV.as_view, name='post_day_archive'),
 
     # Example : /today/
-    path('today/', PostTAV.as_view, name = 'post_today_archive')
+    path('today/', PostTAV.as_view, name='post_today_archive'),
+
+    # Example : /add/
+    path('add/', PostCreateView.as_view(), name='add'),
+    path('change/', PostChangeLV.as_view(), name='change'),
+    path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
+    path('<int:pk>/delete/', PostDeleteView.as_view(), name="delete"),
 ]
