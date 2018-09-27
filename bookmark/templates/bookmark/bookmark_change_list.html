@@ -20,8 +20,8 @@
             <td> {{ item.title }} </td>
             <td> {{ item.url }} </td>
             <td> {{ item.owner }}</td>
-            <td> <a href="{% url 'bookmark:update' item.id}">Update</a></td>
-            <td> <a href="{% url 'bookmark:delete' item.id}">Delete</a></td>
+            <td> <a href="{% url 'bookmark:update' pk=item.id %}">Update</a></td>
+            <td> <a href="{% url 'bookmark:delete' pk=item.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
